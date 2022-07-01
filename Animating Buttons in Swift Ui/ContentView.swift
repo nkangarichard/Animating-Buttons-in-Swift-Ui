@@ -25,7 +25,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .offset(y: isAnimated ? -1000: 0)
-                    .animation(.easeIn(duration: 3.0))
+                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
                     Button("Slide RIght") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
@@ -35,7 +35,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .offset(x: isAnimated ? 1000: 0)
-                    .animation(.easeIn(duration: 3.0))
+                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
                     Button("Slide left") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
@@ -45,7 +45,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .offset(x: isAnimated ? -1000: 0)
-                    .animation(.easeIn(duration: 3.0))
+                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
                     Button("Slide Down") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
@@ -55,7 +55,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .offset(y: isAnimated ? 1000: 0)
-                    .animation(.easeIn(duration: 3.0))
+                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
                     Button("Rotate") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
@@ -65,7 +65,7 @@ struct ContentView: View {
                     .foregroundColor(.black)
                     .background(.white)
                     .rotationEffect(isAnimated ? .degrees(360) : .degrees(0))
-                    .animation(.easeIn(duration: 3.0))
+                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
                 
                     Spacer()
