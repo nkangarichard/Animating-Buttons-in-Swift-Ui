@@ -17,35 +17,69 @@ struct ContentView: View {
             VStack {
                 VStack {
                     Spacer()
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                    Button("Slide Up") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .offset(y: isAnimated ? -1000: 0)
+                    .animation(.easeIn(duration: 3.0))
                     
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                    Button("Slide RIght") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .offset(x: isAnimated ? 1000: 0)
+                    .animation(.easeIn(duration: 3.0))
                     
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                    Button("Slide left") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .offset(x: isAnimated ? -1000: 0)
+                    .animation(.easeIn(duration: 3.0))
                     
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                    Button("Slide Down") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .offset(y: isAnimated ? 1000: 0)
+                    .animation(.easeIn(duration: 3.0))
                     
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
+                    Button("Rotate") {
                         /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
                     }
+                    .padding()
+                    .frame(width: 150, height: 50)
+                    .foregroundColor(.black)
+                    .background(.white)
+                    .rotationEffect(isAnimated ? .degrees(360) : .degrees(0))
+                    .animation(.easeIn(duration: 3.0))
                     
-                    Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                    }
+                
                     Spacer()
                 }
                 
-                Button(/*@START_MENU_TOKEN@*/"Button"/*@END_MENU_TOKEN@*/) {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                Button(isAnimated ? "Reset" : "Activate Animation ") {
+                    self.isAnimated.toggle()
                 }
+                .padding()
+                .frame(width: 180, height: 60)
+                .foregroundColor(.black)
+                .background(.white)
+                .cornerRadius(10)
+              
             }
         }
     }
