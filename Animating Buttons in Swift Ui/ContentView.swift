@@ -10,77 +10,100 @@ import SwiftUI
 struct ContentView: View {
     @State var isAnimated = false
     
+    init() {
+        let navTitleAppearance = UINavigationBarAppearance()
+        navTitleAppearance.configureWithOpaqueBackground()
+        // navTitleAppearance.titleTextAttributes = [.foregroundColor: UIColor.systemBackground]
+        navTitleAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navTitleAppearance.backgroundColor = UIColor.clear
+        navTitleAppearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = navTitleAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navTitleAppearance
+        UINavigationBar.appearance().compactAppearance = navTitleAppearance
+        UINavigationBar.appearance().tintColor = .white
+    }
+    
     var body: some View {
        
-        ZStack {
-            Color(red: 0.06, green: 0.53, blue: 0.42).edgesIgnoringSafeArea(.all)
-            VStack {
+        NavigationView {
+            ZStack {
+                Color(red: 0.06, green: 0.53, blue: 0.42).edgesIgnoringSafeArea(.all)
                 VStack {
-                    Spacer()
-                    Button("Slide Up") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    VStack {
+                        Spacer()
+                        Button("Slide Up") {
+                            
+                        }
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .offset(y: isAnimated ? -1000: 0)
+                        .animation(.easeIn(duration: 3.0), value: isAnimated)
+                        
+                        Button("Slide RIght") {
+                            
+                        }
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .offset(x: isAnimated ? 1000: 0)
+                        .animation(.easeIn(duration: 3.0), value: isAnimated)
+                        
+                        Button("Slide left") {
+                            
+                        }
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .offset(x: isAnimated ? -1000: 0)
+                        .animation(.easeIn(duration: 3.0), value: isAnimated)
+                        
+                        Button("Slide Down") {
+                            
+                        }
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .offset(y: isAnimated ? 1000: 0)
+                        .animation(.easeIn(duration: 3.0), value: isAnimated)
+                        
+                        Button("Rotate") {
+                            
+                        }
+                        .padding()
+                        .frame(width: 150, height: 50)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .rotationEffect(isAnimated ? .degrees(360) : .degrees(0))
+                        .animation(.easeIn(duration: 3.0), value: isAnimated)
+                        
+                        
+                        Spacer()
+                    }
+                    
+                    Button(isAnimated ? "Reset" : "Activate Animation ") {
+                        self.isAnimated.toggle()
                     }
                     .padding()
-                    .frame(width: 150, height: 50)
+                    .frame(width: 180, height: 60)
                     .foregroundColor(.black)
                     .background(.white)
-                    .offset(y: isAnimated ? -1000: 0)
-                    .animation(.easeIn(duration: 3.0), value: isAnimated)
-                    
-                    Button("Slide RIght") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                    }
+                    .cornerRadius(10)
                     .padding()
-                    .frame(width: 150, height: 50)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .offset(x: isAnimated ? 1000: 0)
-                    .animation(.easeIn(duration: 3.0), value: isAnimated)
                     
-                    Button("Slide left") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                    }
-                    .padding()
-                    .frame(width: 150, height: 50)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .offset(x: isAnimated ? -1000: 0)
-                    .animation(.easeIn(duration: 3.0), value: isAnimated)
-                    
-                    Button("Slide Down") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                    }
-                    .padding()
-                    .frame(width: 150, height: 50)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .offset(y: isAnimated ? 1000: 0)
-                    .animation(.easeIn(duration: 3.0), value: isAnimated)
-                    
-                    Button("Rotate") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
-                    }
-                    .padding()
-                    .frame(width: 150, height: 50)
-                    .foregroundColor(.black)
-                    .background(.white)
-                    .rotationEffect(isAnimated ? .degrees(360) : .degrees(0))
-                    .animation(.easeIn(duration: 3.0), value: isAnimated)
-                    
-                
-                    Spacer()
                 }
-                
-                Button(isAnimated ? "Reset" : "Activate Animation ") {
-                    self.isAnimated.toggle()
-                }
-                .padding()
-                .frame(width: 180, height: 60)
-                .foregroundColor(.black)
-                .background(.white)
-                .cornerRadius(10)
-              
-            }
+                /*            .onAppear{
+                 self.isAnimated.toggle()
+                 
+                 }
+                 */            }
+            .navigationTitle("Animations")
+            .navigationBarTitleDisplayMode(.inline)
+            
         }
     }
 }
