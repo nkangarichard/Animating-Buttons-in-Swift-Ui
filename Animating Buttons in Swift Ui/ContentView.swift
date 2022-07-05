@@ -33,6 +33,9 @@ struct ContentView: View {
                         Spacer()
                         Button("Slide Up") {
                             
+                            
+                            print("Slide up");
+                            
                         }
                         .padding()
                         .frame(width: 150, height: 50)
@@ -42,6 +45,8 @@ struct ContentView: View {
                         .animation(.easeIn(duration: 3.0), value: isAnimated)
                         
                         Button("Slide RIght") {
+                            
+                            print("Slide Right");
                             
                         }
                         .padding()
@@ -53,6 +58,8 @@ struct ContentView: View {
                         
                         Button("Slide left") {
                             
+                            print("Slide left");
+                            
                         }
                         .padding()
                         .frame(width: 150, height: 50)
@@ -63,6 +70,8 @@ struct ContentView: View {
                         
                         Button("Slide Down") {
                             
+                            print("Slide Down");
+                            
                         }
                         .padding()
                         .frame(width: 150, height: 50)
@@ -72,6 +81,8 @@ struct ContentView: View {
                         .animation(.easeIn(duration: 3.0), value: isAnimated)
                         
                         Button("Rotate") {
+                            
+                            print("Rotate");
                             
                         }
                         .padding()
@@ -87,6 +98,7 @@ struct ContentView: View {
                     
                     Button(isAnimated ? "Reset" : "Activate Animation ") {
                         self.isAnimated.toggle()
+                       
                     }
                     .padding()
                     .frame(width: 180, height: 60)
